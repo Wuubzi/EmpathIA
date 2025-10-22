@@ -4,6 +4,7 @@ import com.emotionalAnalyzer.EmpathIA.DTO.RequestDTO.AskRequestDTO;
 import com.emotionalAnalyzer.EmpathIA.DTO.ResponseDTO.AskResponseDTO;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.messages.SystemMessage;
+import org.springframework.ai.tool.ToolCallbackProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +13,11 @@ public class ChatService {
     private final ChatClient chatClient;
 
     @Autowired
-    public ChatService(ChatClient.Builder chatClientBuilder) {
-        this.chatClient = chatClientBuilder.build();
+    public ChatService(ChatClient.Builder chatClientBuilder, ToolCallbackProvider tools) {
+
+        this.chatClient = chatClientBuilder
+                .defaultToolCallbacks(tools)
+                .build();
     }
 
     public AskResponseDTO ask(AskRequestDTO askDTO){

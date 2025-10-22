@@ -34,4 +34,4 @@ import java.time.LocalTime;
         private Boolean isPublic;
     }
 
-}
+

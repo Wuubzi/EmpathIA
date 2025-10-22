@@ -24,7 +24,7 @@ public class ChatController {
         this.chatService = chatService;
     }
 
-    @PostMapping("/ask")
+    @PostMapping("/analyze")
     public ResponseEntity<AskResponseDTO> ask(@RequestBody @Valid AskRequestDTO askDTO) {
         return new ResponseEntity<AskResponseDTO>(chatService.ask(askDTO), HttpStatus.OK);
     }

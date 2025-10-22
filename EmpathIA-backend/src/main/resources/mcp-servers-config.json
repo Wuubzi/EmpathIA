@@ -6,7 +6,7 @@
     "-Dspring.ai.mcp.server.stdio=true",
     "-Dserver.port=9998",
     "-jar",
-    "C:\\Users\\carlo\\OneDrive\\Desktop\\mpc-server\\build\\libs\\mpc-server-0.0.1-SNAPSHOT.jar"
+    "EmpathIA-backend/src/main/resources/mcpServer-0.0.1-SNAPSHOT.jar"
   ]
 }
   }

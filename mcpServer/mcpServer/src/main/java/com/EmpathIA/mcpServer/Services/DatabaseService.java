@@ -2,7 +2,6 @@ package com.EmpathIA.mcpServer.Services;
 
 import com.EmpathIA.mcpServer.Models.*;
 import com.EmpathIA.mcpServer.Repositories.*;
-import lombok.RequiredArgsConstructor;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,7 +49,7 @@ public class DatabaseService {
     }
 
     @Tool(description = "Records a detailed user risk analysis, storing potential threats or anomalies identified by the system.")
-    public String register_risks_analysis(Integer userId, Double riskLevel) {
+    public String register_risks_analysis(Long userId, Double riskLevel) {
         Optional<User> userOpt = userRepository.findById(userId);
         if (userOpt.isEmpty()) {
             return "User not found.";
@@ -67,7 +66,7 @@ public class DatabaseService {
     }
 
     @Tool(description = "Initiates continuous monitoring of user activity to track patterns and detect suspicious behavior.")
-    public String start_user_monitoring(Integer userId) {
+    public String start_user_monitoring(Long userId) {
         Optional<User> userOpt = userRepository.findById(userId);
         if (userOpt.isEmpty()) {
             return "User not found.";
@@ -103,4 +102,5 @@ public class DatabaseService {
         Optional<UserTracking> trackingOpt = userTrackingRepository.findTopByUserIdOrderByTrackingDateDesc(userId);
         return trackingOpt.map(userTracking -> "✅ User is under active monitoring. Last update: " + userTracking.getTrackingDate()).orElse("❌ User not currently monitored.");
     }
+
 }
