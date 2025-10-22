@@ -30,7 +30,7 @@ public class DatabaseService {
         this.userTrackingRepository = userTrackingRepository;
     }
     @Tool(description = "Creates and registers a system alert for a specific user when unusual behavior or risks are detected.")
-    public String create_user_alert(Integer userId, String alertType, String message, String urgencyLevel) {
+    public String create_user_alert(Long userId, String alertType, String message, String urgencyLevel) {
         Optional<User> userOpt = userRepository.findById(userId);
         if (userOpt.isEmpty()) {
             return "User not found.";
