@@ -1,76 +1,60 @@
-# Equipo de Desarrollo – EmpathIA
+# Development Team — EmpathIA
 
-**Proyecto:** EmpathIA – Sistema de Análisis de Riesgo Emocional  
-**Evento:** Hackathon 2025  
-**Duración:** 60 horas  
-**Modalidad:** Desarrollo colaborativo (Spring Boot · React · Supabase)
+Project: EmpathIA — Emotional Risk Analysis System
 
----
+Event: Hackathon 2025
 
-## 🧩 Integrantes del equipo
+Duration: 60 hours
 
-| Nombre completo | Rol principal | Responsabilidades |
-|------------------|---------------|-------------------|
-| **[Zharick Londoño]** | Frontend Developer | Diseñar e implementar la interfaz de usuario en React. Desarrollar el CRUD de publicaciones, el flujo de alertas visuales y el chat empático. |
-| **[Carlos Salas]** | Backend Developer | Crear la API REST en Spring Boot, implementar la lógica del agente, conectar con el MCP y gestionar la base de datos en Supabase. |
-| **[Santiago Palomino]** | QA / Product Analyst | Documentar el sistema, validar las interacciones entre componentes, realizar pruebas funcionales y definir los criterios de riesgo emocional. |
+Modality: Collaborative development (Spring Boot · React · Supabase)
 
 ---
 
-## 🧠 Enfoque del equipo
-El equipo adoptó una **metodología ágil** basada en iteraciones cortas y entregas continuas.  
-Cada integrante asumió tareas complementarias, priorizando la comunicación, la trazabilidad del código y la coherencia técnica del producto.
+This document summarizes the small cross-functional team that delivered the EmpathIA MVP. It preserves roles and primary responsibilities and adds practical ownership, communication and onboarding notes for reviewers and future contributors.
 
-Principios que guiaron el desarrollo:
-- **Empatía:** el agente debía ser técnicamente sólido y emocionalmente responsable.  
-- **Eficiencia:** priorizar la funcionalidad esencial del MVP sobre la complejidad.  
-- **Colaboración:** decisiones compartidas, revisión cruzada de código y documentación unificada.  
+## Mission
 
----
+Deliver a secure, auditable, and privacy-aware prototype that detects emotional risk from short texts and provides empathetic recommendations and escalation alerts where appropriate.
 
-## 🧩 Repartición técnica
+## Team members and primary responsibilities
 
-**Frontend Developer**
-- Implementación del flujo de publicaciones.  
-- Diseño de UI minimalista (simulación de red social).  
-- Integración con el backend vía API REST.  
-- Gestión de estados (React Hooks / Context API).  
+| Name | Role | Primary responsibilities |
+|---|---|---|
+| Zharick Londoño | Frontend Developer | UI implementation (Next.js); component library under `emotion-analyzer/app/components/`; client-side integration with `/api/agent/analyze`; accessibility and usability reviews. |
+| Carlos Salas | Backend Developer | Server-side endpoints (Spring Boot); MCP/LLM orchestration; persistence to Supabase; security and deployment configuration. |
+| Santiago Palomino | QA / Product Analyst | Test case definition and execution; end-to-end validation; acceptance criteria; user-flow documentation and demo preparation. |
 
-**Backend Developer**
-- Configuración de endpoints RESTful en Spring Boot.  
-- Integración con Supabase y MCP.  
-- Implementación de lógica de riesgo y generación de alertas.  
-- Envío automático de correos a profesionales.  
+## Ownership and code locations
 
-**QA / Product Analyst**
-- Diseño de casos de prueba.  
-- Documentación funcional y técnica.  
-- Validación de flujo de análisis y envío de alertas.  
-- Control de calidad del producto final.
+- Frontend ownership: `emotion-analyzer/` (app, components, styles).
+- Backend ownership: `mcpServer/` and `EmpathIA-mcp/` (controllers, services, prompt templates).
+- Data model and schemas: `docs/DATABASE_MODEL.md` and `docs/schemas/`.
 
----
+## Working model and communication
 
-## 🔄 Colaboración y herramientas
+- Development cadence: short iterative cycles with daily syncs during the hackathon.
+- Code reviews: pull requests on GitHub; at least one reviewer for each merge to `main` or the feature branch.
+- Communication channels: repository issues for tasks, a shared chat (Slack/Discord) for quick coordination, and scheduled demo sessions for stakeholder feedback.
 
-| Herramienta | Propósito |
-|--------------|-----------|
-| **GitHub** | Control de versiones y colaboración. |
-| **Trello** | Gestión de tareas por sprints de 4 horas. |
-| **Stitch AI** | Generación de wireframes del MVP. |
-| **v0 dev Vercel** | Creación de prototipo de interfaz en React. |
+## Deliverables and immediate handoff notes
 
----
+- MVP deliverables: working demo (frontend), API endpoint (`/api/agent/analyze`), database schema, and deployment instructions.
+- Handoff checklist for maintainers:
+	1. Ensure environment variables for LLM and Supabase are provisioned in the deployment environment.
+	2. Review `docs/REFERENCE.md` for run commands and schema locations.
+	3. Run the included test cases (see `docs/TESTING_STRATEGY.md`) before accepting major changes.
 
-## 🚀 Filosofía del equipo
-> “La tecnología debe escuchar antes de actuar.  
-> EmpathIA no solo detecta emociones, sino que aprende a responder con humanidad.”
+## How to get started (quick onboarding)
 
-El equipo concibe EmpathIA como una herramienta de impacto social real, que combina análisis de lenguaje natural, diseño empático y desarrollo ágil con propósito.
+1. Clone the repository and read `docs/REFERENCE.md` for local start commands.
+2. Start the frontend: `cd emotion-analyzer; pnpm install; pnpm dev`.
+3. Start the backend MCP server: `cd mcpServer/mcpServer; .\gradlew.bat bootRun` (PowerShell).
+4. Run the basic validation suite described in `docs/TESTING_STRATEGY.md`.
 
----
+## Contact and repository
 
-## 📫 Contacto del equipo
-Si deseas colaborar, contribuir o conocer más sobre EmpathIA:
+Repository: https://github.com/Wuubzi/EmpathIA
 
-- **Repositorio:** [github.com/equipo01/EmpathIA](https://github.com/Wuubzi/EmpathIA.git)  
-- **Redes:** próximamente disponible.
+For questions about feature ownership or deployment, open an issue and tag the responsible team member listed above.
+
+

@@ -1,0 +1,13 @@
+{
+  "$id": "https://empathia.local/schemas/agent-request.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EmpathIA Agent Request",
+  "type": "object",
+  "required": ["text"],
+  "properties": {
+    "text": { "type": "string", "minLength": 1 },
+    "source": { "type": "string" },
+    "user_id": { "type": "string" }
+  },
+  "additionalProperties": false
+}
