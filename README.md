@@ -67,11 +67,19 @@ Design and implement an **AI-driven emotional risk detection ecosystem** that id
 
 ### System Workflow
 ```mermaid
-    A[Text Source (e.g. Social Media API)] --> B[MCP Server (Spring Boot)]
-    B --> C[LLM - Amazon Bedrock (Nova Pro)]
+graph TD
+    A[Text Source<br/>Social Media API] --> B[MCP Server<br/>Spring Boot]
+    B --> C[LLM<br/>Amazon Bedrock Nova Pro]
     C --> D[Risk Classification + Response]
     D --> E[Supabase Storage]
-    E --> F[Frontend Simulation (React UI)]
+    E --> F[Frontend Simulation<br/>React UI]
+    
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style C fill:#e8f5e8
+    style D fill:#fff3e0
+    style E fill:#fce4ec
+    style F fill:#e0f2f1
 ```
 
 ## In One Paragraph
