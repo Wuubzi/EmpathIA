@@ -1,0 +1,16 @@
+{
+  "$id": "https://empathia.local/schemas/agent-response.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EmpathIA Agent Response",
+  "type": "object",
+  "required": ["risk_level","empathy_response"],
+  "properties": {
+    "risk_level": { "type": "string", "enum": ["low","medium","high"] },
+    "empathy_response": { "type": "string" },
+    "recommendation": { "type": "string" },
+    "confidence": { "type": "number" },
+    "analysis_id": { "type": "string", "format": "uuid" },
+    "alert_triggered": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}
