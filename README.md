@@ -59,7 +59,7 @@ Design and implement an **AI-driven emotional risk detection ecosystem** that id
 | **Backend (MCP Server)** | Spring Boot + Spring AI | Request orchestration, data validation, and agent control |
 | **LLM** | Amazon Bedrock (`amazon.nova-pro-v1:0`) | Emotional understanding and response generation |
 | **Database** | Supabase (PostgreSQL) | Stores anonymized analysis records and user data |
-| **Testing** | JUnit, Jest, Postman | Unit, integration, and LLM validation tests |
+| **Testing** | JUnit, Mockito, Postman | Unit, integration, and LLM validation tests |
 
 ---
 
