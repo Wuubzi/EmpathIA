@@ -11,7 +11,7 @@
 
 ---
 
-## 🧭 Overview
+##  Overview
 
 **EmpathIA** is an **AI analytical system**, not a social network.  
 Its purpose is to analyze textual content (e.g., social media posts) in real time to identify **emotional distress signals** and trigger preventive, empathetic actions.  
@@ -19,11 +19,11 @@ Its purpose is to analyze textual content (e.g., social media posts) in real tim
 The small web interface included in this MVP only **simulates a social media environment** to demonstrate the AI’s functionality during evaluation.  
 In production, EmpathIA connects directly to real APIs (e.g., Facebook, X, or LinkedIn) to process user posts and provide risk-aware emotional analysis.
 
-> 🧠 **Core idea:** Early detection of emotional risk through natural language understanding.
+>  **Core idea:** Early detection of emotional risk through natural language understanding.
 
 ---
 
-## 🧩 Project Structure
+##  Project Structure
 
 | Folder | Responsible | Description |
 |--------|-------------|-------------|
@@ -35,12 +35,12 @@ All components communicate via a **custom Model Control Protocol (MCP)** develop
 
 ---
 
-## 🎯 Objectives
+##  Objectives
 
 ### General Objective
 Design and implement an **AI-driven emotional risk detection ecosystem** that identifies emotional distress patterns in short text and provides early, empathetic interventions.
 
-> 💬 *Helping people before the crisis becomes visible.*
+>  *Helping people before the crisis becomes visible.*
 
 ### Specific Objectives
 - **Detect** emotional distress and classify it as **low, medium, or high risk**.  
@@ -51,7 +51,7 @@ Design and implement an **AI-driven emotional risk detection ecosystem** that id
 
 ---
 
-## ⚙️ Technologies and Stack
+##  Technologies and Stack
 
 | Layer | Technology | Purpose |
 |-------|-------------|----------|
@@ -63,11 +63,10 @@ Design and implement an **AI-driven emotional risk detection ecosystem** that id
 
 ---
 
-## 🧠 Architecture Overview
+## Architecture Overview
 
 ### System Workflow
 ```mermaid
-flowchart LR
     A[Text Source (e.g. Social Media API)] --> B[MCP Server (Spring Boot)]
     B --> C[LLM - Amazon Bedrock (Nova Pro)]
     C --> D[Risk Classification + Response]
@@ -81,7 +80,7 @@ EmpathIA processes text through a custom MCP gateway, which routes it to the Ama
 The LLM returns a structured JSON with three key fields: risk_level, response, and recommendation.
 The backend validates, filters, and stores the result in Supabase, while the frontend displays it in a simulated post feed.
 
-### 🧩 Agent Behavior (Single-Agent Model)
+### Agent Behavior (Single-Agent Model)
 
 EmpathIA now operates under one unified agent, simplifying communication and ensuring consistent behavior.
 
@@ -134,11 +133,11 @@ System complies with Habeas Data (Law 1581/2012, Colombia) and GDPR principles.
 
 | Phase                  | Focus                               | Deliverable                     |
 | ---------------------- | ----------------------------------- | ------------------------------- |
-| ✅ MVP (Hackathon 2025) | Emotion detection prototype         | LLM integration + UI simulation |
-| 🚧 Q1 2026             | External API connector (Facebook/X) | Social media ingestion          |
-| ⚙️ Q2 2026             | Enhanced empathy tuning             | LLM fine-tuning                 |
-| 💬 Q3 2026             | Multi-agent extensions              | Contextual collaboration        |
-| 🌍 Q4 2026             | Real pilot test                     | Large-scale emotional analytics |
+|  MVP (Hackathon 2025) | Emotion detection prototype         | LLM integration + UI simulation |
+|  Q1 2026             | External API connector (Facebook/X) | Social media ingestion          |
+|  Q2 2026             | Enhanced empathy tuning             | LLM fine-tuning                 |
+|  Q3 2026             | Multi-agent extensions              | Contextual collaboration        |
+|  Q4 2026             | Real pilot test                     | Large-scale emotional analytics |
 
 ## Team
 
