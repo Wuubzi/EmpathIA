@@ -13,10 +13,9 @@ public class ChatService {
     private final ChatClient chatClient;
 
     @Autowired
-    public ChatService(ChatClient.Builder chatClientBuilder, ToolCallbackProvider tools) {
+    public ChatService(ChatClient.Builder chatClientBuilder) {
 
         this.chatClient = chatClientBuilder
-                .defaultToolCallbacks(tools)
                 .build();
     }
 

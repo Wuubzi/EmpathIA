@@ -7,7 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class EmpathIa {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EmpathIa.class, args);
+
+        SpringApplication.run(EmpathIa.class, args);
 	}
 
 }
