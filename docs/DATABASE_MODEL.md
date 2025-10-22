@@ -1,7 +1,5 @@
 # Modelo de Datos – EmpathIA
 
-# Modelo de datos — EmpathIA
-
 Compact relational schema intended for the EmpathIA MVP. The tables and fields below are a guidance baseline; adapt names, types and constraints to project conventions, Supabase/Postgres requirements, and local compliance needs.
 
 ## Tablas principales
