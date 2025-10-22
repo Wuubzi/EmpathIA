@@ -1,5 +1,7 @@
 # EmpathIA – Sistema de Análisis de Riesgo Emocional
 
+![EmpathIA Banner](https://i.pinimg.com/736x/7b/d1/ff/7bd1ff257306c2649d3da3e892a15b2d.jpg)
+
 **EmpathIA** es una solución agéntica que utiliza inteligencia artificial para analizar publicaciones textuales y detectar señales de riesgo emocional en usuarios, ofreciendo respuestas empáticas y alertas preventivas hacia profesionales de apoyo o instituciones especializadas.
 
 Este proyecto fue desarrollado durante una hackathon de 48 horas con un enfoque interdisciplinario, ético y técnico, combinando ingeniería de software, IA y bienestar mental.
