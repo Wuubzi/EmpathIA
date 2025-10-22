@@ -1,7 +1,7 @@
 # Etapa 1: construir la app
 FROM gradle:8.10-jdk21 AS build
 WORKDIR /app
-COPY . .
+COPY src .
 RUN gradle clean bootJar --no-daemon
 
 # Etapa 2: imagen final
