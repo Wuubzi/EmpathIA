@@ -123,9 +123,9 @@ The agent collaborates with users but does not act without supervision.
 ## 👥 Team
 
 <p align="center">
-  <img src="https://co.pinterest.com/pin/850828554641993818/" width="130" style="border-radius: 50%; margin: 10px;">
-  <img src="https://co.pinterest.com/pin/850828554641993818/" width="130" style="border-radius: 50%; margin: 10px;">
-  <img src="https://co.pinterest.com/pin/850828554641993818/" width="130" style="border-radius: 50%; margin: 10px;">
+  <img src="https://i.pinimg.com/736x/91/99/a0/9199a097b7a6ac76bd519f2e1a635514.jpg" width="130" style="border-radius: 50%; margin: 10px;">
+  <img src="https://i.pinimg.com/736x/91/99/a0/9199a097b7a6ac76bd519f2e1a635514.jpg" width="130" style="border-radius: 50%; margin: 10px;">
+  <img src="https://i.pinimg.com/736x/91/99/a0/9199a097b7a6ac76bd519f2e1a635514.jpg" width="130" style="border-radius: 50%; margin: 10px;">
 </p>
 
 <table align="center">
