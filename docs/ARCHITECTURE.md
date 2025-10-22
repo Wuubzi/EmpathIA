@@ -1,69 +1,69 @@
-# Arquitectura del Sistema – EmpathIA
+# 🧱 System Architecture — EmpathIA
+
+EmpathIA is an **AI-powered emotional risk analysis system**, designed to detect, classify, and respond empathetically to user-generated content.  
+Although the MVP interface simulates a social media environment, **EmpathIA is *not* a social network**.  
+Its purpose is analytical: to process texts from external sources (e.g., Facebook, X, Instagram) and return an emotional risk assessment with an empathetic recommendation.
 
 ---
 
-## 1. Visión general
+## 🧠 High-Level Overview
 
-EmpathIA se basa en una arquitectura **cliente-servidor con componentes IA desacoplados** mediante el MCP (Model Control Protocol).  
-El objetivo es mantener la escalabilidad, la trazabilidad y la posibilidad de mejorar el agente de manera modular.
+Frontend (React Simulation) → MCP Server (Spring IA) → LLM (Amazon Bedrock – Nova Pro) → Supabase (Storage)
 
----
 
-## 2. Componentes principales
-
-### **Frontend (React)**
-- CRUD de publicaciones.  
-- Perfil del usuario y sus publicaciones anteriores.  
-- Sistema de alertas visual.  
-- Chat de acompañamiento empático.  
-
-### **Backend (Spring Boot)**
-- Controlador principal de análisis de riesgo.  
-- Integración con MCP y LLM.  
-- Lógica de envío de alertas vía correo.  
-- API REST para comunicación con el frontend.
-
-### **Base de datos (Supabase / PostgreSQL)**
-- Entidades relacionales con índices optimizados.  
-- Trazabilidad de publicaciones, análisis y alertas.  
-- Registros históricos de seguimiento emocional.
+The system follows a **modular, event-driven architecture**, allowing scalability, interoperability, and AI-driven decision logging.  
+All components communicate via REST APIs and JSON payloads.
 
 ---
 
-## 3. Flujo de interacción
+## 🧩 Main Components
 
-[Usuario]
-↓
-[Frontend React]
-↓
-[API Spring Boot]
-↓
-[MCP + LLM] → [Clasificación de riesgo] → [Supabase]
-↓
-[Respuesta empática o alerta]
+| Layer | Technology | Description |
+|--------|-------------|--------------|
+| **Frontend (Simulation)** | React + Next.js + Shadcn UI | Provides a simulated social media experience for MVP testing. Users post messages, view emotional feedback, and interact with a chatbot. |
+| **Backend (MCP Server)** | Spring Boot + Spring AI | Orchestrates message flow, connects to the LLM (Amazon Bedrock), and ensures secure data transmission to Supabase. |
+| **LLM Layer** | Amazon Bedrock – `amazon.nova-pro-v1:0` | Performs emotional tone detection, risk classification, empathetic response generation, and recommendation. |
+| **Database Layer** | Supabase (PostgreSQL) | Manages structured data (posts, analyses, responses, alerts). Enables monitoring, history, and compliance logs. |
+
+---
+
+## ⚙️ Detailed Architecture Flow
+
+### 1️⃣ Frontend Layer (Simulation UI)
+- Built with **React + Tailwind + Shadcn UI**.  
+- Simulates posting, analysis visualization, and empathetic chat.  
+- Routes are managed locally; all requests are sent to the **MCP Server**.  
+- Responsible for rendering:
+  - Emotional feedback cards  
+  - User history (PostHistory)  
+  - Chat interface (SupportChat)  
+
+**Example Action Flow:**
+User writes post → clicks “Analyze & Publish” → sends text to MCP Server
 
 
 ---
 
-## 4. Flujo de alertas
+### 2️⃣ Backend Layer (MCP Server – Spring IA)
+- Core orchestrator of EmpathIA.
+- Receives posts or text input from frontend or external API (e.g., Facebook).
+- Executes:
+  1. Data validation  
+  2. JSON formatting  
+  3. LLM request to **Amazon Bedrock**  
+  4. Response interpretation  
+  5. Persistence into Supabase  
 
-1. El usuario realiza una publicación.  
-2. El agente analiza el texto con el LLM.  
-3. Si se detecta riesgo **alto**, se genera una alerta en la BD.  
-4. El sistema busca en la tabla de **profesionales u organizaciones** el correo más relevante.  
-5. Se envía automáticamente un mensaje de advertencia con los datos del caso.  
+**Endpoint:**  
+`POST /api/agent/analyze`
 
----
+**Example Workflow:**
+```text
+Frontend → MCP → Bedrock → JSON Output → Supabase + Frontend Response
 
-## 5. Seguridad y cumplimiento
-- Cumplimiento de **Ley 1581/2012 (Habeas Data – Colombia)**.  
-- Cifrado de credenciales en Supabase.  
-- Validación de inputs del usuario.  
-- Control de roles (usuario, analista, profesional).
-
----
-
-## 6. Escalabilidad futura
-- Integración de dashboards analíticos.  
-- Soporte para análisis multimodal (texto + voz).  
-- Microservicios para módulos de IA.  
+| Module               | Function                                                       |
+| -------------------- | -------------------------------------------------------------- |
+| `AnalysisController` | Handles all `/api/agent/analyze` requests.                     |
+| `LLMService`         | Connects with Amazon Bedrock’s `nova-pro-v1:0` model.          |
+| `SafetyFilter`       | Removes unsafe or diagnostic language before saving responses. |
+| `SupabaseService`    | Stores emotional analysis, user metadata, and logs.            |
