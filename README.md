@@ -75,7 +75,7 @@ flowchart LR
     E --> F[Frontend Simulation (React UI)]
 ```
 
-# In One Paragraph
+## In One Paragraph
 
 EmpathIA processes text through a custom MCP gateway, which routes it to the Amazon Bedrock LLM.
 The LLM returns a structured JSON with three key fields: risk_level, response, and recommendation.
@@ -91,12 +91,14 @@ EmpathIA now operates under one unified agent, simplifying communication and ens
 | `response`       | Short empathetic message tailored to the user’s tone.            |
 | `recommendation` | Concrete action or suggestion (e.g., contact a helpline).        |
 
+```json
 {
   "risk_level": "high",
   "response": "Lamento que te sientas así, recuerda que no estás solo. Hay ayuda disponible.",
   "recommendation": "Contacta la línea 192 o busca apoyo profesional.",
   "confidence": 0.94
 }
+```
 
 # Example Integration (Facebook)
 
@@ -147,20 +149,20 @@ System complies with Habeas Data (Law 1581/2012, Colombia) and GDPR principles.
 | **Santiago Palomino** | AI Specialist     | LLM, Dataset, Supabase  |
 
 ## Quick Start
-# Frontend
 
-```
-cd emotion-analyzer
+### Frontend
+
+```powershell
+cd .\emotion-analyzer
 pnpm install
 pnpm dev
 ```
 
-# Backend(MCP Server)
+### Backend (MCP Server)
 
-```
-cd mcpServer/mcpServer
-./gradlew bootRun
-
+```powershell
+cd .\mcpServer\mcpServer
+.\gradlew.bat bootRun
 ```
 
 # Final Notes for Evaluators
