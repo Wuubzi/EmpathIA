@@ -1,156 +1,179 @@
-🩺 EmpathIA – Emotional Risk Analysis System
+# 🩺 EmpathIA – Emotional Risk Analysis System
+
 <p align="center">
   <img src="https://i.pinimg.com/736x/7b/d1/ff/7bd1ff257306c2649d3da3e892a15b2d.jpg" alt="EmpathIA Banner" width="600px" style="border-radius: 12px;">
 </p>
+
 <p align="center">
   <em>"Understanding emotions to save lives."</em><br>
   EmpathIA detects emotional risk through language to promote early mental health intervention.
 </p>
 
-🧭 Overview
-EmpathIA is an intelligent system that analyzes text in real time to identify emotional distress signals and trigger preventive actions. It combines NLP, a custom Spring Boot MCP Server, and a GPT-based LLM to classify emotions and generate alerts or empathetic responses.
+---
 
-🧩 Project Structure
+## 🧭 Overview
+
+**EmpathIA** is an **AI analytical system**, not a social network.  
+Its purpose is to analyze textual content (e.g., social media posts) in real time to identify **emotional distress signals** and trigger preventive, empathetic actions.  
+
+The small web interface included in this MVP only **simulates a social media environment** to demonstrate the AI’s functionality during evaluation.  
+In production, EmpathIA connects directly to real APIs (e.g., Facebook, X, or LinkedIn) to process user posts and provide risk-aware emotional analysis.
+
+> 🧠 **Core idea:** Early detection of emotional risk through natural language understanding.
+
+---
+
+## 🧩 Project Structure
+
 | Folder | Responsible | Description |
 |--------|-------------|-------------|
-| `/backend` | Carlos Salas | Spring Boot MCP Server, API orchestration, data routing |
-| `/frontend` | Zharick Londoño | React interface, UX flow, and documentation |
-| `/llm` | Santiago Palomino | GPT model integration, emotional dataset, Supabase pipeline |
+| `/backend` | **Carlos Salas** | Spring Boot MCP Server, API orchestration, and Bedrock integration |
+| `/frontend` | **Zharick Londoño** | React interface (UI simulation), UX flow, and documentation |
+| `/llm` | **Santiago Palomino** | LLM configuration, emotional dataset curation, and Supabase integration |
 
-All components communicate via a custom Model Control Protocol (MCP) that ensures synchronized processing and response consistency.
+All components communicate via a **custom Model Control Protocol (MCP)** developed with **Spring AI**, ensuring synchronized model orchestration, consistent responses, and auditability.
 
+---
 
-🎯 Objectives
-General Objective
-Design and implement an AI-driven emotional risk detection ecosystem that identifies distress patterns in text and provides early mental health support.
+## 🎯 Objectives
 
-💬 Helping people before the crisis becomes visible.
+### General Objective
+Design and implement an **AI-driven emotional risk detection ecosystem** that identifies emotional distress patterns in short text and provides early, empathetic interventions.
 
-⚙️ Specific Objectives
-| # | Objective |
-|---|-----------|
-| 🧠 | Classify emotions and risk levels (Low, Medium, High) using GPT-based NLP |
-| 🤖 | Trigger automated empathy responses or alerts |
-| 🧩 | Connect frontend, backend, and LLM via Spring Boot MCP Server |
-| 🔐 | Ensure compliance with Law 1581/2012 (Habeas Data – Colombia) |
-| 🚀 | Maintain modularity and scalability for future extensions |
+> 💬 *Helping people before the crisis becomes visible.*
 
-🧠 System Architecture
-<p align="center">
-  <img src="https://i.pinimg.com/736x/f2/33/ab/f233ab9947ad5404bc338d1e4cb7ffbe.jpg" width="550px" style="border-radius: 12px;">
-</p>
-1. 🖥️ Frontend (React)
+### Specific Objectives
+- **Detect** emotional distress and classify it as **low, medium, or high risk**.  
+- **Generate** empathetic and context-appropriate responses.  
+- **Recommend** supportive actions or professional resources.  
+- **Ensure** data ethics and compliance (Law 1581/2012 – Habeas Data, Colombia).  
+- **Enable** scalable integration into any existing social network or text-based platform.
 
-Interactive interface for posting, emotional feedback, and support chat
-Integrated visualization of user's emotional trends and alerts
-Designed for accessibility and empathetic UX
+---
 
-2. ⚙️ Backend (Spring Boot + MCP)
+## ⚙️ Technologies and Stack
 
-Core logic and communication hub between LLM and frontend
-Routes content for emotional classification and response generation
-Implements MCP Server for secure and standardized message exchange
+| Layer | Technology | Purpose |
+|-------|-------------|----------|
+| **Frontend** | React (Next.js + Tailwind) | Simulation interface for emotional post analysis |
+| **Backend (MCP Server)** | Spring Boot + Spring AI | Request orchestration, data validation, and agent control |
+| **LLM** | Amazon Bedrock (`amazon.nova-pro-v1:0`) | Emotional understanding and response generation |
+| **Database** | Supabase (PostgreSQL) | Stores anonymized analysis records and user data |
+| **Testing** | JUnit, Jest, Postman | Unit, integration, and LLM validation tests |
 
-3. 🗄️ Database (Supabase + PostgreSQL)
+---
 
-Stores emotional analyses, alerts, user data, and monitoring logs
-Supports anonymization and compliance with ethical data practices
+## 🧠 Architecture Overview
 
+### System Workflow
+```mermaid
+flowchart LR
+    A[Text Source (e.g. Social Media API)] --> B[MCP Server (Spring Boot)]
+    B --> C[LLM - Amazon Bedrock (Nova Pro)]
+    C --> D[Risk Classification + Response]
+    D --> E[Supabase Storage]
+    E --> F[Frontend Simulation (React UI)]
+```
 
-💡 Core Features
-| Feature | Description |
-|---------|-------------|
-| 🧠 **Emotion Detection** | NLP-based emotion and risk classification in real time |
-| 💬 **Empathetic Chatbot** | Contextual responses generated by the LLM |
-| ⚠️ **Alert System** | Auto-triggered alerts for high-risk posts |
-| 📧 **Email Notifications** | Connection to external support networks |
-| 📊 **Analytics Dashboard** | Visualization of emotional and behavioral metrics |
-| 🌍 **Multi-language Support** | English, Spanish, Portuguese, and German |
-| 🔒 **Privacy & Compliance** | Follows ethical and legal data principles |
+# In One Paragraph
 
-🗃️ Database Schema Overview
-Main Entities (Supabase - PostgreSQL)
+EmpathIA processes text through a custom MCP gateway, which routes it to the Amazon Bedrock LLM.
+The LLM returns a structured JSON with three key fields: risk_level, response, and recommendation.
+The backend validates, filters, and stores the result in Supabase, while the frontend displays it in a simulated post feed.
 
-USERS - User profiles and authentication
-POSTS - User-generated content for analysis
-RISK_ANALYSIS - Emotional risk classifications
-SUPPORT_RESPONSES - AI-generated empathetic responses
-ALERTS - High-risk event notifications
-MENTAL_HEALTH_PROFESSIONALS - Professional contact directory
-SUPPORT_ORGANIZATIONS - External support resources
-USER_MONITORING - Behavioral pattern tracking
-EMERGENCY_CONTACTS - Crisis intervention contacts
+### 🧩 Agent Behavior (Single-Agent Model)
 
+EmpathIA now operates under one unified agent, simplifying communication and ensuring consistent behavior.
 
-📄 See complete schema in DATABASE_MODEL.md
+| Field            | Description                                                      |
+| ---------------- | ---------------------------------------------------------------- |
+| `risk_level`     | `"low"`, `"medium"`, or `"high"` — detected emotional intensity. |
+| `response`       | Short empathetic message tailored to the user’s tone.            |
+| `recommendation` | Concrete action or suggestion (e.g., contact a helpline).        |
 
+{
+  "risk_level": "high",
+  "response": "Lamento que te sientas así, recuerda que no estás solo. Hay ayuda disponible.",
+  "recommendation": "Contacta la línea 192 o busca apoyo profesional.",
+  "confidence": 0.94
+}
 
-🧩 AI Autonomy Level
-EmpathIA operates under the University of Washington's AI Autonomy Model – Level 2 (Collaborator).
-| Stage | Level | Description |
-|-------|-------|-------------|
-| **MVP** | L2 – Collaborator | AI suggests empathetic actions with human supervision |
-| **+6 months** | L3 – Consultant | Semi-autonomous decision logging |
-| **+1 year** | L4 – Approver | Human-validated automatic interventions |
-| **+3 years** | L5 – Observer | Full autonomous monitoring and response |
+# Example Integration (Facebook)
 
-🚀 Roadmap
-| Stage | Focus | Output |
-|-------|-------|--------|
-| ✅ **Hackathon MVP** | Emotional classifier + empathy chatbot | Core MCP integration |
-| 🧩 **Q1 2026** | Supabase data flow | Secure and auditable pipeline |
-| ⚙️ **Q2 2026** | GPT fine-tuning | Context-aware empathy |
-| 💬 **Q3 2026** | Frontend analytics | Dashboard implementation |
-| 🌍 **Q4 2026** | Pilot test | Scalable deployment |
+When integrated into Facebook:
 
-🧰 Technology Stack
-<p align="center">
-  <img src="https://img.shields.io/badge/Java-ED8B00?logo=openjdk&logoColor=white&style=for-the-badge">
-  <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?logo=springboot&logoColor=white&style=for-the-badge">
-  <img src="https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB&style=for-the-badge">
-  <img src="https://img.shields.io/badge/Supabase-3ECF8E?logo=supabase&logoColor=white&style=for-the-badge">
-  <img src="https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql&logoColor=white&style=for-the-badge">
-  <img src="https://img.shields.io/badge/GPT-412991?logo=openai&logoColor=white&style=for-the-badge">
-</p>
-Main Components
-| Layer | Technology |
-|-------|------------|
-| **Frontend** | React + TailwindCSS |
-| **Backend** | Spring Boot IA + Custom MCP Server |
-| **LLM** | GPT Emotional Model |
-| **Database** | Supabase (PostgreSQL) |
+1. The MCP Server consumes posts from a monitored Page or Feed API.
+2. Each post text is analyzed via Bedrock.
+3. If a “high risk” is detected:
+  - The agent replies empathetically (via Facebook Graph API).
+  - A private alert is logged and optionally sent to moderators.
+4. Data is anonymized before storage in Supabase.
 
-👥 Team
-| Member | Role | Responsibilities |
-|--------|------|------------------|
-| **Carlos Salas** | Backend Engineer | MCP Server, API architecture, and database link |
-| **Zharick Londoño** | Frontend Developer | UI/UX, React development, and documentation |
-| **Santiago Palomino** | AI Engineer | GPT fine-tuning, dataset preparation, Supabase integration |
+##  Repository Structure Summary
 
-🧮 Evaluation Map (for AI Assessors)
-| Evaluation Layer | Input | Processing | Output | Purpose |
-|------------------|-------|------------|--------|---------|
-| 🖥️ **Frontend (React)** | User text or post | Form validation + preprocessing | API request to backend | Collects input for emotional analysis |
-| ⚙️ **Backend (Spring Boot MCP)** | API payload | NLP preprocessing → LLM call → sentiment classification | JSON response with risk score and emotional tone | Central processing and routing |
-| 🧠 **LLM (GPT)** | Clean text input | Context embedding + fine-tuned emotion recognition | Risk level + empathetic response suggestion | Emotion detection and empathy generation |
-| 🗄️ **Database (Supabase)** | Analysis data | Storage + anonymization | Persistent emotional record | History and data ethics |
-| 🚨 **Alert System** | Risk ≥ threshold | Trigger email or chatbot interaction | Notification to user or professional | Preventive action and safety net |
+| Path                | Purpose                                                  |
+| ------------------- | -------------------------------------------------------- |
+| `emotion-analyzer/` | Frontend (Next.js demo, UI components)                   |
+| `mcpServer/`        | MCP gateway and controllers                              |
+| `EmpathIA-mcp/`     | Core agent logic and Bedrock adapters                    |
+| `EmpathIA-backend/` | Backend utilities and integrations                       |
+| `docs/`             | Technical documentation (schemas, architecture, testing) |
 
-✅ Key Evaluation Highlights
+## Security, Privacy, and Ethics
 
-Architecture: Modular 3-layer system (Frontend – Backend – LLM – DB)
-Interoperability: Custom MCP Server ensures reliable communication
-Ethics: Fully compliant with Habeas Data (Law 1581/2012)
-Scalability: Microservice-ready and cloud-compatible
-Transparency: Complete decision traceability and audit logging
-Clarity: Structured for both human and AI-based evaluation systems
+All identifiers are hashed or anonymized before persistence.
+No medical or diagnostic language is allowed.
+The MCP enforces tone validation and content safety filters.
+All API keys and credentials are stored securely (e.g., AWS Secrets Manager).
+System complies with Habeas Data (Law 1581/2012, Colombia) and GDPR principles.
+**Ethical principle:** EmpathIA supports, never diagnoses.
 
+## Roadmap
 
-🧾 License
-Distributed under the MIT License.
-See LICENSE for more details.
+| Phase                  | Focus                               | Deliverable                     |
+| ---------------------- | ----------------------------------- | ------------------------------- |
+| ✅ MVP (Hackathon 2025) | Emotion detection prototype         | LLM integration + UI simulation |
+| 🚧 Q1 2026             | External API connector (Facebook/X) | Social media ingestion          |
+| ⚙️ Q2 2026             | Enhanced empathy tuning             | LLM fine-tuning                 |
+| 💬 Q3 2026             | Multi-agent extensions              | Contextual collaboration        |
+| 🌍 Q4 2026             | Real pilot test                     | Large-scale emotional analytics |
 
-<p align="center">
-  <strong>EmpathIA – Technology with a human purpose.</strong><br>
-  <em>More than AI, a companion for emotional well-being.</em>
-</p>
+## Team
+
+| Member                | Role              | Focus Area              |
+| --------------------- | ----------------- | ----------------------- |
+| **Carlos Salas**      | Backend Engineer  | MCP, APIs, Data Routing |
+| **Zharick Londoño**   | Frontend Engineer | UI/UX, Documentation    |
+| **Santiago Palomino** | AI Specialist     | LLM, Dataset, Supabase  |
+
+## Quick Start
+# Frontend
+
+```
+cd emotion-analyzer
+pnpm install
+pnpm dev
+```
+
+# Backend(MCP Server)
+
+```
+cd mcpServer/mcpServer
+./gradlew bootRun
+
+```
+
+# Final Notes for Evaluators
+
+- EmpathIA is not a social network, but an analytical AI engine simulating social media for demo purposes.
+
+- Evaluation should focus on:
+
+      - LLM consistency (risk_level, response, recommendation)
+      - Ethical compliance and non-diagnostic tone
+      - Integration readiness (API, Bedrock, Supabase)
+      - Documentation completeness and logical structure
+
+For prompt schemas and example payloads, see docs/AGENT_DESIGN.md
+
+<p align="center"> <strong>EmpathIA – Technology with Human Purpose.</strong><br> <em>More than AI, a companion for emotional well-being.</em> </p> ```

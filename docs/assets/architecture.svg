@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="360" viewBox="0 0 900 360">
+  <style>
+    .box { fill: #f7fafc; stroke: #2b6cb0; stroke-width: 2px; rx: 8px; }
+    .text { font-family: Inter, Arial, sans-serif; font-size:14px; fill:#1a202c }
+    .title { font-weight:700; font-size:13px }
+  </style>
+  <!-- Frontend -->
+  <rect class="box" x="40" y="40" width="170" height="80" rx="8"/>
+  <text x="125" y="70" class="text title" text-anchor="middle">Frontend</text>
+  <text x="125" y="92" class="text" text-anchor="middle">Next.js · UI</text>
+
+  <!-- MCP Gateway -->
+  <rect class="box" x="260" y="30" width="170" height="100" rx="8"/>
+  <text x="345" y="60" class="text title" text-anchor="middle">MCP Gateway</text>
+  <text x="345" y="82" class="text" text-anchor="middle">Spring Boot · Validation</text>
+
+  <!-- Agent Service -->
+  <rect class="box" x="480" y="30" width="170" height="100" rx="8"/>
+  <text x="565" y="60" class="text title" text-anchor="middle">Agent Service</text>
+  <text x="565" y="82" class="text" text-anchor="middle">Prompts · Safety · Normalization</text>
+
+  <!-- LLM -->
+  <rect class="box" x="700" y="40" width="170" height="80" rx="8"/>
+  <text x="785" y="70" class="text title" text-anchor="middle">LLM</text>
+  <text x="785" y="92" class="text" text-anchor="middle">Amazon Bedrock / GPT</text>
+
+  <!-- Arrows -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2b6cb0" />
+    </marker>
+  </defs>
+  <line x1="210" y1="80" x2="260" y2="80" stroke="#2b6cb0" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="430" y1="80" x2="480" y2="80" stroke="#2b6cb0" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="650" y1="80" x2="700" y2="80" stroke="#2b6cb0" stroke-width="2" marker-end="url(#arrow)" />
+
+  <!-- Persistence -->
+  <rect class="box" x="480" y="160" width="200" height="80" rx="8"/>
+  <text x="580" y="190" class="text title" text-anchor="middle">Persistence</text>
+  <text x="580" y="212" class="text" text-anchor="middle">Supabase / Postgres</text>
+
+  <line x1="565" y1="130" x2="565" y2="160" stroke="#2b6cb0" stroke-width="2" marker-end="url(#arrow)" />
+
+  <!-- Notes -->
+  <text x="40" y="300" class="text">Note: Every analysis is tagged with an <tspan font-weight="700">analysis_id (UUID)</tspan> for traceability.</text>
+</svg>
