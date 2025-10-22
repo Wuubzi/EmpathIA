@@ -1,5 +1,6 @@
 package com.emotionalAnalyzer.EmpathIA.Services;
 
+import com.emotionalAnalyzer.EmpathIA.DTO.RequestDTO.PostRequestDTO;
 import com.emotionalAnalyzer.EmpathIA.DTO.RequestDTO.PostUpdateRequestDTO;
 import com.emotionalAnalyzer.EmpathIA.DTO.ResponseDTO.Response;
 import com.emotionalAnalyzer.EmpathIA.Models.Post;
@@ -11,6 +12,8 @@ import org.springframework.boot.autoconfigure.graphql.GraphQlProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,8 +27,16 @@ public class PostService {
         this.postRepository = postRepository;
     }
 
-    public Response createPost(Post post, HttpServletRequest request) {
-            postRepository.save(post);
+    public Response createPost(PostRequestDTO postRequestDTO, HttpServletRequest request) {
+        Post post = new Post();
+        post.setTextContent(postRequestDTO.getContent());
+        post.setPublic(postRequestDTO.getIsPublic() != null ? postRequestDTO.getIsPublic() : false);
+        post.setPublishDate(LocalDate.now());
+        post.setPublishTime(LocalTime.now());
+        post.setUserId(postRequestDTO.getId_user());
+
+        postRepository.save(post);
+
         Response response = new Response();
         response.setMessage("Post created");
         response.setStatus("success");

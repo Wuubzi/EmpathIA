@@ -90,7 +90,7 @@ class PostServiceTest {
 
         assertEquals("Post deleted", response.getMessage());
         assertEquals("success", response.getStatus());
-        verify(postRepository, times(1)).deleteById(1);
+        verify(postRepository, times(1)).delete(post);
     }
 
     @Test

@@ -1,5 +1,6 @@
 package com.emotionalAnalyzer.EmpathIA.Controllers;
 
+import com.emotionalAnalyzer.EmpathIA.DTO.RequestDTO.PostRequestDTO;
 import com.emotionalAnalyzer.EmpathIA.DTO.RequestDTO.PostUpdateRequestDTO;
 import com.emotionalAnalyzer.EmpathIA.DTO.ResponseDTO.Response;
 import com.emotionalAnalyzer.EmpathIA.Models.Post;
@@ -29,7 +30,7 @@ public class PostController {
     }
 
     @GetMapping("/getPostById")
-    public ResponseEntity<Post> getPostById(Long id_post) {
+    public ResponseEntity<Post> getPostById(@RequestParam  Long id_post) {
         return new ResponseEntity<>(postService.getPostById(id_post), HttpStatus.OK);
     }
 
@@ -38,7 +39,7 @@ public class PostController {
         return new ResponseEntity<Response>(postService.deletePost(id_post, request), HttpStatus.OK);
     }
     @PostMapping("/createPost")
-    public ResponseEntity<Response> createPost(@RequestBody  Post post, HttpServletRequest request) {
+    public ResponseEntity<Response> createPost(@RequestBody PostRequestDTO post, HttpServletRequest request) {
         return new ResponseEntity<Response>(postService.createPost(post, request), HttpStatus.OK);
     }
     @PutMapping("/updatePost")
