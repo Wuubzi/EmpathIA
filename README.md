@@ -1,4 +1,4 @@
-# 🩺 EmpathIA – Emotional Risk Analysis System
+# EmpathIA – Emotional Risk Analysis System
 
 <p align="center">
   <img src="https://i.pinimg.com/736x/7b/d1/ff/7bd1ff257306c2649d3da3e892a15b2d.jpg" alt="EmpathIA Banner" width="600px" style="border-radius: 12px;">
