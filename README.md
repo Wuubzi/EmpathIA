@@ -1,83 +1,156 @@
-# EmpathIA – Sistema de Análisis de Riesgo Emocional
+🩺 EmpathIA – Emotional Risk Analysis System
+<p align="center">
+  <img src="https://i.pinimg.com/736x/7b/d1/ff/7bd1ff257306c2649d3da3e892a15b2d.jpg" alt="EmpathIA Banner" width="600px" style="border-radius: 12px;">
+</p>
+<p align="center">
+  <em>"Understanding emotions to save lives."</em><br>
+  EmpathIA detects emotional risk through language to promote early mental health intervention.
+</p>
 
-**EmpathIA** es una solución agéntica que utiliza inteligencia artificial para analizar publicaciones textuales y detectar señales de riesgo emocional en usuarios, ofreciendo respuestas empáticas y alertas preventivas hacia profesionales de apoyo o instituciones especializadas.
+🧭 Overview
+EmpathIA is an intelligent system that analyzes text in real time to identify emotional distress signals and trigger preventive actions. It combines NLP, a custom Spring Boot MCP Server, and a GPT-based LLM to classify emotions and generate alerts or empathetic responses.
 
-Este proyecto fue desarrollado durante una hackathon de 48 horas con un enfoque interdisciplinario, ético y técnico, combinando ingeniería de software, IA y bienestar mental.
+🧩 Project Structure
+| Folder | Responsible | Description |
+|--------|-------------|-------------|
+| `/backend` | Carlos Salas | Spring Boot MCP Server, API orchestration, data routing |
+| `/frontend` | Zharick Londoño | React interface, UX flow, and documentation |
+| `/llm` | Santiago Palomino | GPT model integration, emotional dataset, Supabase pipeline |
 
----
-
-## 🎯 Objetivo general
-Desarrollar un sistema agéntico capaz de **analizar texto en tiempo real**, identificar niveles de riesgo emocional y **generar intervenciones preventivas** (alertas o acompañamiento) para contribuir a la detección temprana de crisis emocionales.
-
----
-
-## ⚙️ Objetivos específicos
-- Implementar un **agente colaborativo (L2)** basado en el modelo de autonomía de la Universidad de Washington.
-- Detectar emociones y clasificar riesgo en tres niveles: **Bajo**, **Moderado** y **Alto**.
-- Enviar alertas automáticas a **profesionales y organizaciones** cuando se detecten señales de riesgo alto.
-- Garantizar **seguridad de datos, ética y transparencia** en la interacción con el usuario.
-
----
-
-## 🧠 Arquitectura general
-El sistema está compuesto por tres capas principales:
-
-1. **Frontend (React):** Interfaz tipo red social donde el usuario puede crear publicaciones, visualizar su perfil y recibir alertas.
-2. **Backend (Spring Boot):** Lógica del agente, análisis de riesgo, comunicación con el MCP y control del flujo de datos.
-3. **Base de datos (Supabase):** Estructura relacional con entidades de usuarios, publicaciones, análisis, alertas y contactos.
+All components communicate via a custom Model Control Protocol (MCP) that ensures synchronized processing and response consistency.
 
 
----
+🎯 Objectives
+General Objective
+Design and implement an AI-driven emotional risk detection ecosystem that identifies distress patterns in text and provides early mental health support.
 
-## 💡 Principales características
-- Análisis emocional automático en tiempo real.  
-- Clasificación de riesgo con base en contexto semántico.  
-- Generación de alertas preventivas y correos a profesionales.  
-- Chat de acompañamiento empático.  
-- Seguimiento del estado emocional del usuario.  
-- Cumplimiento de Habeas Data (Ley 1581/2012 – Colombia).
+💬 Helping people before the crisis becomes visible.
 
----
+⚙️ Specific Objectives
+| # | Objective |
+|---|-----------|
+| 🧠 | Classify emotions and risk levels (Low, Medium, High) using GPT-based NLP |
+| 🤖 | Trigger automated empathy responses or alerts |
+| 🧩 | Connect frontend, backend, and LLM via Spring Boot MCP Server |
+| 🔐 | Ensure compliance with Law 1581/2012 (Habeas Data – Colombia) |
+| 🚀 | Maintain modularity and scalability for future extensions |
 
-## 📊 Base de datos
-Modelo relacional basado en entidades como:
-- `USUARIOS`
-- `PUBLICACIONES`
-- `ANALISIS_RIESGO`
-- `RESPUESTAS_APOYO`
-- `ALERTAS`
-- `PROFESIONALES_APOYO`
-- `ORGANIZACIONES_AYUDA`
-- `SEGUIMIENTO_USUARIO`
-- `CONTACTOS_EMERGENCIA`
+🧠 System Architecture
+<p align="center">
+  <img src="https://i.pinimg.com/736x/f2/33/ab/f233ab9947ad5404bc338d1e4cb7ffbe.jpg" width="550px" style="border-radius: 12px;">
+</p>
+1. 🖥️ Frontend (React)
 
-Ver documento completo en [`DATABASE_MODEL.md`](./DATABASE_MODEL.md)
+Interactive interface for posting, emotional feedback, and support chat
+Integrated visualization of user's emotional trends and alerts
+Designed for accessibility and empathetic UX
 
----
+2. ⚙️ Backend (Spring Boot + MCP)
 
-## 🧩 Nivel de autonomía
-EmpathIA opera actualmente en **L2 – User as a Collaborator**, permitiendo la colaboración entre usuario y agente sin automatización crítica.
+Core logic and communication hub between LLM and frontend
+Routes content for emotional classification and response generation
+Implements MCP Server for secure and standardized message exchange
 
-| Fase | Nivel | Descripción |
-|------|-------|-------------|
-| MVP (Hackathon) | **L2 – Collaborator** | El agente sugiere y analiza, sin ejecutar acciones sin supervisión. |
-| 6 meses | **L3 – Consultant** | Recomendaciones más complejas, con trazabilidad de decisiones. |
-| 1 año | **L4 – Approver** | Capacidad de ejecutar acciones automáticas tras revisión mínima. |
-| 3 años | **L5 – Observer** | Autonomía supervisada, intervenciones en tiempo real. |
+3. 🗄️ Database (Supabase + PostgreSQL)
 
----
+Stores emotional analyses, alerts, user data, and monitoring logs
+Supports anonymization and compliance with ethical data practices
 
-## 🗺️ Roadmap
-Consulta la evolución planificada del producto en [`ROADMAP.md`](./ROADMAP.md)
 
----
+💡 Core Features
+| Feature | Description |
+|---------|-------------|
+| 🧠 **Emotion Detection** | NLP-based emotion and risk classification in real time |
+| 💬 **Empathetic Chatbot** | Contextual responses generated by the LLM |
+| ⚠️ **Alert System** | Auto-triggered alerts for high-risk posts |
+| 📧 **Email Notifications** | Connection to external support networks |
+| 📊 **Analytics Dashboard** | Visualization of emotional and behavioral metrics |
+| 🌍 **Multi-language Support** | English, Spanish, Portuguese, and German |
+| 🔒 **Privacy & Compliance** | Follows ethical and legal data principles |
 
-## 👥 Equipo
-Proyecto desarrollado por el **Equipo 01 – Hackathon 2025**  
-Ver funciones y roles en [`TEAM.md`](./TEAM.md)
+🗃️ Database Schema Overview
+Main Entities (Supabase - PostgreSQL)
 
----
+USERS - User profiles and authentication
+POSTS - User-generated content for analysis
+RISK_ANALYSIS - Emotional risk classifications
+SUPPORT_RESPONSES - AI-generated empathetic responses
+ALERTS - High-risk event notifications
+MENTAL_HEALTH_PROFESSIONALS - Professional contact directory
+SUPPORT_ORGANIZATIONS - External support resources
+USER_MONITORING - Behavioral pattern tracking
+EMERGENCY_CONTACTS - Crisis intervention contacts
 
-## 📜 Licencia
-Este proyecto se distribuye bajo la licencia MIT.  
-Ver detalles en [`LICENSE`](./LICENSE)
+
+📄 See complete schema in DATABASE_MODEL.md
+
+
+🧩 AI Autonomy Level
+EmpathIA operates under the University of Washington's AI Autonomy Model – Level 2 (Collaborator).
+| Stage | Level | Description |
+|-------|-------|-------------|
+| **MVP** | L2 – Collaborator | AI suggests empathetic actions with human supervision |
+| **+6 months** | L3 – Consultant | Semi-autonomous decision logging |
+| **+1 year** | L4 – Approver | Human-validated automatic interventions |
+| **+3 years** | L5 – Observer | Full autonomous monitoring and response |
+
+🚀 Roadmap
+| Stage | Focus | Output |
+|-------|-------|--------|
+| ✅ **Hackathon MVP** | Emotional classifier + empathy chatbot | Core MCP integration |
+| 🧩 **Q1 2026** | Supabase data flow | Secure and auditable pipeline |
+| ⚙️ **Q2 2026** | GPT fine-tuning | Context-aware empathy |
+| 💬 **Q3 2026** | Frontend analytics | Dashboard implementation |
+| 🌍 **Q4 2026** | Pilot test | Scalable deployment |
+
+🧰 Technology Stack
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-ED8B00?logo=openjdk&logoColor=white&style=for-the-badge">
+  <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?logo=springboot&logoColor=white&style=for-the-badge">
+  <img src="https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB&style=for-the-badge">
+  <img src="https://img.shields.io/badge/Supabase-3ECF8E?logo=supabase&logoColor=white&style=for-the-badge">
+  <img src="https://img.shields.io/badge/PostgreSQL-316192?logo=postgresql&logoColor=white&style=for-the-badge">
+  <img src="https://img.shields.io/badge/GPT-412991?logo=openai&logoColor=white&style=for-the-badge">
+</p>
+Main Components
+| Layer | Technology |
+|-------|------------|
+| **Frontend** | React + TailwindCSS |
+| **Backend** | Spring Boot IA + Custom MCP Server |
+| **LLM** | GPT Emotional Model |
+| **Database** | Supabase (PostgreSQL) |
+
+👥 Team
+| Member | Role | Responsibilities |
+|--------|------|------------------|
+| **Carlos Salas** | Backend Engineer | MCP Server, API architecture, and database link |
+| **Zharick Londoño** | Frontend Developer | UI/UX, React development, and documentation |
+| **Santiago Palomino** | AI Engineer | GPT fine-tuning, dataset preparation, Supabase integration |
+
+🧮 Evaluation Map (for AI Assessors)
+| Evaluation Layer | Input | Processing | Output | Purpose |
+|------------------|-------|------------|--------|---------|
+| 🖥️ **Frontend (React)** | User text or post | Form validation + preprocessing | API request to backend | Collects input for emotional analysis |
+| ⚙️ **Backend (Spring Boot MCP)** | API payload | NLP preprocessing → LLM call → sentiment classification | JSON response with risk score and emotional tone | Central processing and routing |
+| 🧠 **LLM (GPT)** | Clean text input | Context embedding + fine-tuned emotion recognition | Risk level + empathetic response suggestion | Emotion detection and empathy generation |
+| 🗄️ **Database (Supabase)** | Analysis data | Storage + anonymization | Persistent emotional record | History and data ethics |
+| 🚨 **Alert System** | Risk ≥ threshold | Trigger email or chatbot interaction | Notification to user or professional | Preventive action and safety net |
+
+✅ Key Evaluation Highlights
+
+Architecture: Modular 3-layer system (Frontend – Backend – LLM – DB)
+Interoperability: Custom MCP Server ensures reliable communication
+Ethics: Fully compliant with Habeas Data (Law 1581/2012)
+Scalability: Microservice-ready and cloud-compatible
+Transparency: Complete decision traceability and audit logging
+Clarity: Structured for both human and AI-based evaluation systems
+
+
+🧾 License
+Distributed under the MIT License.
+See LICENSE for more details.
+
+<p align="center">
+  <strong>EmpathIA – Technology with a human purpose.</strong><br>
+  <em>More than AI, a companion for emotional well-being.</em>
+</p>
