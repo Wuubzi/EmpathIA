@@ -1,7 +1,7 @@
 # 🩺 EmpathIA – Emotional Risk Analysis System
 
 <p align="center">
-  <img src="https://i.pinimg.com/736x/7b/d1/ff/7bd1ff257306c2649d3da3e892a15b2d.jpg" alt="EmpathIA Banner" width="600px" style="border-radius: 12px;">
+  <img src="https://i.imgur.com/xYQvMNr.jpeg" alt="EmpathIA Banner" width="600px" style="border-radius: 12px;">
 </p>
 
 > **"Understanding emotions to save lives."**  
@@ -40,10 +40,6 @@ Design and implement an **AI-driven emotional risk detection system** that analy
 ---
 
 ## 🧠 System Architecture
-
-<p align="center">
-  <img src="https://i.pinimg.com/736x/f2/33/ab/f233ab9947ad5404bc338d1e4cb7ffbe.jpg" width="550px" style="border-radius: 12px;">
-</p>
 
 EmpathIA is structured in **three main layers**:
 
