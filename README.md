@@ -29,7 +29,7 @@ In production, EmpathIA connects directly to real APIs (e.g., Facebook, X, or Li
 |--------|-------------|-------------|
 | `/backend` | **Carlos Salas** | Spring Boot MCP Server, API orchestration, and Bedrock integration |
 | `/frontend` | **Zharick Londoño** | React interface (UI simulation), UX flow, and documentation |
-| `/llm` | **Santiago Palomino** | LLM configuration, emotional dataset curation, and Supabase integration |
+| `/data` | **Santiago Palomino** | Dataset curation and Supabase integration |
 
 All components communicate via a **custom Model Control Protocol (MCP)** developed with **Spring AI**, ensuring synchronized model orchestration, consistent responses, and auditability.
 
