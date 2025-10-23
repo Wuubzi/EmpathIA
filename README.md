@@ -165,13 +165,19 @@ pnpm install
 pnpm dev
 ```
 
-### Backend (MCP Server)
+### MCP Server
 
 ```powershell
-cd .\mcpServer\mcpServer
+cd .\mcpServer
 .\gradlew.bat bootRun
 ```
 
+### Backend
+
+```powershell
+cd .\EmpathIA-backend
+.\gradlew.bat bootRun
+```
 # Final Notes for Evaluators
 
 - EmpathIA is not a social network, but an analytical AI engine simulating social media for demo purposes.
