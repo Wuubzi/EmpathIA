@@ -123,8 +123,7 @@ When integrated into Facebook:
 | Path                | Purpose                                                  |
 | ------------------- | -------------------------------------------------------- |
 | `emotion-analyzer/` | Frontend (Next.js demo, UI components)                   |
-| `mcpServer/`        | MCP gateway and controllers                              |
-| `EmpathIA-mcp/`     | Core agent logic and Bedrock adapters                    |
+| `mcpServer/`        | MCP server and tools for IA                             |
 | `EmpathIA-backend/` | Backend utilities and integrations                       |
 | `docs/`             | Technical documentation (schemas, architecture, testing) |
 
